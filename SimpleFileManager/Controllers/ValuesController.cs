@@ -4,24 +4,28 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace SimpleFileManager.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            //return Json(new string[] { "value1", "value2"});
+            return Json(new { Name = "Oleh", Age = 22 });
+
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public JsonResult<string> Get(int id)
         {
-            return "value";
+            return Json("value");
         }
 
         // POST api/values
+        [HttpPut]
         public void Post([FromBody]string value)
         {
         }

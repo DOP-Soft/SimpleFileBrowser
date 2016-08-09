@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Simple directory/file browser</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Scripts/libs/angularjs/angular.js"></script>
+    <script src="~/Scripts/libs/angularjs/angular.min.js"></script>
+    <script src="~/Scripts/app/pages/Index/fileManager.module.js"></script>
+</head>
+<body ng-app="fileManagerModule">
+    <header>
+        <h2 class="center-element">Simple directory/file browser</h2>
+        <h4 ng-style="{ 'display' : 'block' }" style="display:none;color:green;">{{ "AngularJS is functional" }}</h4>
+        <h4 ng-style="{ 'display' : 'none' }" style="display:block;color:red;">AngularJS is not functional</h4>
+    </header>
+    <section>
+        @RenderBody()
+    </section>
+
+    <hr />
+
+    <footer class="center-element">
+        <p>&copy; @DateTime.Now.Year - Oleh Dubanych</p>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
