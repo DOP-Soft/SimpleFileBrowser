@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace SimpleFileManager
+namespace SimpleFileBrowser
 {
     public class FilterConfig
     {

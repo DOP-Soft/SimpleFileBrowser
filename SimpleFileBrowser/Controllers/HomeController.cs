@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace SimpleFileManager.Controllers
+namespace SimpleFileBrowser.Controllers
 {
     public class HomeController : Controller
     {

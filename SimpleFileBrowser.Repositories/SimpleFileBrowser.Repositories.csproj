@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\BaseIOEntityRepository.cs" />
-    <Compile Include="Concrete\DirectoriesRepository.cs" />
-    <Compile Include="Concrete\FilesRepository.cs" />
+    <Compile Include="Concrete\FileSystemRepository.cs" />
     <Compile Include="Interfaces\IIOEntityRepository.cs" />
+    <Compile Include="Models\FileLengthBound.cs" />
+    <Compile Include="Models\FileSystemEntity.cs" />
+    <Compile Include="Models\FileSystemEntityType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
