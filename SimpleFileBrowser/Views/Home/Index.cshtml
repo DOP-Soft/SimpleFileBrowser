@@ -2,24 +2,28 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<div class="table-responsive">
-    <table class="info-table">
-        <thead>
-            <tr>
-                <th style="">Less 10Mb</th>
-                <th>10Mb-50Mb</th>
-                <th>More 100Mb</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>3267</td>
-                <td>242</td>
-                <td>{{48}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div ng-controller="fileBrowserCtrl as fb">
+    <div class="table-responsive">
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th style="">Less 10Mb</th>
+                    <th>10Mb-50Mb</th>
+                    <th>More 100Mb</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{fb.filesCountInfo.lessThan10Mb}}</td>
+                    <td>{{fb.filesCountInfo.between10MbAnd50Mb}}</td>
+                    <td>{{fb.filesCountInfo.moreThan100Mb}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <strong>Current path:</strong> <div id="current-path">{{fb.currentDir}}</div>
+    <div id="file-system-view" ng-repeat="f in fb.files">
+        <a ng-href="{{f.FullName}}">{{f.Name}}</a>
+    </div>
 </div>
-<br />
-<strong>Current path:</strong> <div id="current-path">D:/MyFiles/bla/bla/...</div> 
-<div id="file-system-view"></div>

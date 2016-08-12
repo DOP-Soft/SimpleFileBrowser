@@ -142,7 +142,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\app\pages\Index\fileManager.module.js" />
+    <Content Include="Scripts\app\pages\Index\fileBrowser.controller.js" />
+    <Content Include="Scripts\app\pages\Index\fileBrowser.module.js" />
+    <Content Include="Scripts\app\pages\Index\fileBrowser.service.js" />
     <Content Include="Scripts\libs\bootstrap\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\libs\jquery\jquery-1.10.2.intellisense.js" />

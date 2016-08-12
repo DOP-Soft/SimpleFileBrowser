@@ -23,7 +23,7 @@ namespace SimpleFileBrowser.Controllers
         {
             var files = _fileSystemRepository.GetRootEntries();
             long[] count = _fileSystemRepository.GetFilesCount(
-                Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)), 
+                @"D:\Dell\"/*Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))*/, 
                 new FileLengthBound[3] 
                 {
                     new FileLengthBound(0, 10),
@@ -40,7 +40,8 @@ namespace SimpleFileBrowser.Controllers
             });
         }
 
-        public IHttpActionResult Get(string path)
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]string path)
         {
             // Get list of dirs and files.
             var files = _fileSystemRepository.Get(path);
@@ -61,13 +62,6 @@ namespace SimpleFileBrowser.Controllers
                 MoreThan100Mb = count[2],
                 Files = files
             });
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-
         }
 
         // Class-repository that gives ability to explore file system.

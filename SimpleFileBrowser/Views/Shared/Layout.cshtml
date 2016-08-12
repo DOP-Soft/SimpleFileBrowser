@@ -14,15 +14,16 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <script src="~/Scripts/libs/angularjs/angular.js"></script>
-    <script src="~/Scripts/libs/angularjs/angular.min.js"></script>
-    <script src="~/Scripts/app/pages/Index/fileManager.module.js"></script>
+    <script src="~/Scripts/app/pages/Index/fileBrowser.module.js"></script>
+    <script src="~/Scripts/app/pages/Index/fileBrowser.service.js"></script>
+    <script src="~/Scripts/app/pages/Index/fileBrowser.controller.js"></script>
 </head>
-<body ng-app="fileManagerModule">
-    <header>
+<body ng-app="fileBrowserModule">
+    @*<header>
         <h2 class="center-element">Simple directory/file browser</h2>
         <h4 ng-style="{ 'display' : 'block' }" style="display:none;color:green;">{{ "AngularJS is functional" }}</h4>
         <h4 ng-style="{ 'display' : 'none' }" style="display:block;color:red;">AngularJS is not functional</h4>
-    </header>
+    </header>*@
     <section>
         @RenderBody()
     </section>
