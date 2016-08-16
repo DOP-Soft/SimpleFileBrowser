@@ -55,7 +55,3 @@ table {
     #file-system-view a {
         cursor: pointer;
     }
-
-a.disabled {
-    color: #888;
-}
