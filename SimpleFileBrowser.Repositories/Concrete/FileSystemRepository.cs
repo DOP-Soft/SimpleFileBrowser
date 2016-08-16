@@ -27,8 +27,7 @@ namespace SimpleFileBrowser.Repositories.Concrete
 
         public IEnumerable<FileSystemEntity> GetRootEntries()
         {
-            //var path = Directory.GetDirectoryRoot(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)));
-            var path = @"D:\Dell\";
+            var path = Directory.GetDirectoryRoot(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)));
             DirectoryInfo di = new DirectoryInfo(path);
 
             foreach (var fsi in di.GetFileSystemInfos())
