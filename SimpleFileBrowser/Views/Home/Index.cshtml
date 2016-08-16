@@ -2,28 +2,32 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<div ng-controller="fileBrowserCtrl as fb">
+<div ng-controller="fileBrowserCtrl as fbc">
     <div class="table-responsive">
         <table class="info-table">
             <thead>
                 <tr>
-                    <th style="">Less 10Mb</th>
+                    <th>Less 10Mb</th>
                     <th>10Mb-50Mb</th>
                     <th>More 100Mb</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{fb.filesCountInfo.lessThan10Mb}}</td>
-                    <td>{{fb.filesCountInfo.between10MbAnd50Mb}}</td>
-                    <td>{{fb.filesCountInfo.moreThan100Mb}}</td>
+                    <td>{{fbc.filesCountInfo.lessThan10Mb}}</td>
+                    <td>{{fbc.filesCountInfo.between10MbAnd50Mb}}</td>
+                    <td>{{fbc.filesCountInfo.moreThan100Mb}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <br />
-    <strong>Current path:</strong> <div id="current-path">{{fb.currentDir}}</div>
-    <div id="file-system-view" ng-repeat="f in fb.files">
-        <a ng-href="{{f.FullName}}">{{f.Name}}</a>
+    <div id="current-path"><strong>Current path:</strong>&nbsp{{fbc.currentDir}}</div>
+    <div id="file-system-view">
+        <a ng-show="fbc.parentDir != null" ng-click="fbc.getFilesByPath(fbc.parentDir)">..</a>
+        <div ng-repeat="f in fbc.currentDirFiles">
+            <a ng-if="f.IsDirectory" ng-click="fbc.getFilesByPath(f.FullName)">{{f.Name}}</a>
+            <div ng-if="!f.IsDirectory">{{f.Name}}</div>
+        </div>
     </div>
 </div>

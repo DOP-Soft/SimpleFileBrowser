@@ -21,7 +21,12 @@ namespace SimpleFileBrowser.Controllers
 
         public IHttpActionResult Get()
         {
-            var files = _fileSystemRepository.GetRootEntries();
+            List<SimpleFileManager.Repositories.Models.FileSystemEntity> files = _fileSystemRepository.GetRootEntries().ToList();
+
+            // Get parent dir.
+            var parentDirInfo = Directory.GetParent((files != null && files.Count > 0) ? files[0].FullName : @"D:\Dell\"/*Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))*/);
+            string parentDir = (parentDirInfo != null) ? parentDirInfo.FullName : null;
+
             long[] count = _fileSystemRepository.GetFilesCount(
                 @"D:\Dell\"/*Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))*/, 
                 new FileLengthBound[3] 
@@ -33,6 +38,8 @@ namespace SimpleFileBrowser.Controllers
 
             return Json(new
             {
+                ParentDir = parentDir,
+                CurrentDir = Path.GetDirectoryName((files != null && files.Count > 0) ? files[0].FullName : @"D:\Dell\"/*Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))*/),
                 Less5Mb = count[0],
                 From10To50Mb = count[1],
                 MoreThan100Mb = count[2],
@@ -41,10 +48,17 @@ namespace SimpleFileBrowser.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Post([FromBody]string path)
+        public IHttpActionResult Post([FromBody]dynamic data)
         {
+            string path = data.path;
+            
             // Get list of dirs and files.
-            var files = _fileSystemRepository.Get(path);
+            List<SimpleFileManager.Repositories.Models.FileSystemEntity> files = _fileSystemRepository.Get(path).ToList();
+
+            // Get parent dir.
+            var parentDirInfo = Directory.GetParent(path);
+            string parentDir = (parentDirInfo != null) ? parentDirInfo.FullName : null;
+
             // Count all files that matches boundary condition.
             long[] count = _fileSystemRepository.GetFilesCount(
                 path,
@@ -57,6 +71,8 @@ namespace SimpleFileBrowser.Controllers
 
             return Json(new
             {
+                ParentDir = parentDir,
+                CurrentDir = Path.GetDirectoryName((files != null && files.Count > 0) ? files[0].FullName : @"D:\Dell\"/*Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))*/),
                 Less5Mb = count[0],
                 From10To50Mb = count[1],
                 MoreThan100Mb = count[2],

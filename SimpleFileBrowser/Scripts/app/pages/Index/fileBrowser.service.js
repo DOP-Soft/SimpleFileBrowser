@@ -11,12 +11,13 @@
         return service;
 
         function getFilesAjax() {
-            var promise = $http.get("api/FileBrowser/");
+            var promise = $http.get("../api/FileBrowser/");
             return promise;
         };
 
-        function getFilesByPathAjax(path) {
-            var promise = $http.post("api/FileBrowser/", path);
+        function getFilesByPathAjax(_path) {
+            var data = { path: _path};
+            var promise = $http.post("../api/FileBrowser/", data);
             return promise;
         };
 

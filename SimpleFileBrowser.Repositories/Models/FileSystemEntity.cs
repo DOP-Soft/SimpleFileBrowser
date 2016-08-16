@@ -10,6 +10,6 @@ namespace SimpleFileManager.Repositories.Models
     {
         public string Name { get; set; }
         public string FullName { get; set; }
-        public FileSystemEntityType Type { get; set; }
+        public bool IsDirectory { get; set; }
     }
 }

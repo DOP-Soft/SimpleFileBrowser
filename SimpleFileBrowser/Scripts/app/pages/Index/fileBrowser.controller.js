@@ -14,6 +14,7 @@
         };
         vm.currentDirFiles = [];
         vm.currentDir = "";
+        vm.parentDir = null;
 
         vm.isLoading = true;
 
@@ -22,6 +23,8 @@
         function activate() {
             fileBrowserService.getFiles()
             .then(function (response) {
+                vm.parentDir = response.data.ParentDir;
+                vm.currentDir = response.data.CurrentDir;
                 vm.currentDirFiles = response.data.Files;
                 vm.filesCountInfo.lessThan10Mb = response.data.Less5Mb;
                 vm.filesCountInfo.between10MbAnd50Mb = response.data.From10To50Mb;
@@ -34,6 +37,8 @@
         vm.getFilesByPath = function (path) {
             fileBrowserService.getFilesByPath(path)
             .then(function (response) {
+                vm.parentDir = response.data.ParentDir;
+                vm.currentDir = response.data.CurrentDir;
                 vm.currentDirFiles = response.data.Files;
                 vm.filesCountInfo.lessThan10Mb = response.data.Less5Mb;
                 vm.filesCountInfo.between10MbAnd50Mb = response.data.From10To50Mb;

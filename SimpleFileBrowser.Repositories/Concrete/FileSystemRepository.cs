@@ -23,7 +23,7 @@ namespace SimpleFileBrowser.Repositories.Concrete
                 {
                     Name = fsi.Name,
                     FullName = fsi.FullName,
-                    Type = fsi is DirectoryInfo ? FileSystemEntityType.Directory : FileSystemEntityType.File
+                    IsDirectory = fsi is DirectoryInfo
                 };
             }
         }
@@ -41,7 +41,7 @@ namespace SimpleFileBrowser.Repositories.Concrete
                 {
                     Name = fsi.Name,
                     FullName = fsi.FullName,
-                    Type = fsi is DirectoryInfo ? FileSystemEntityType.Directory : FileSystemEntityType.File
+                    IsDirectory = fsi is DirectoryInfo
                 };
             }
         }

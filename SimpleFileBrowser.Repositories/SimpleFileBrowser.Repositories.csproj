@@ -45,7 +45,6 @@
     <Compile Include="Interfaces\IIOEntityRepository.cs" />
     <Compile Include="Models\FileLengthBound.cs" />
     <Compile Include="Models\FileSystemEntity.cs" />
-    <Compile Include="Models\FileSystemEntityType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

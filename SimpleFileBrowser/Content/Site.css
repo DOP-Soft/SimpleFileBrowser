@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 20px;
 }
 
@@ -37,7 +37,9 @@ table {
     border-collapse: collapse;
 }
 
-.info-table {
+.info-table,
+#current-path,
+#file-system-view {
     margin: 0 auto;
     width: 50%;
 }
@@ -46,6 +48,14 @@ table {
     text-align: center;
 }
 
-#current-path {
-    display: inline;
+#file-system-view {
+    padding: 10px;
+}
+
+    #file-system-view a {
+        cursor: pointer;
+    }
+
+a.disabled {
+    color: #888;
 }

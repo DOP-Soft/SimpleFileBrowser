@@ -98,6 +98,10 @@ namespace SimpleFileBrowser.Repositories.Abstract
                     {
                         continue;
                     }
+                    catch(PathTooLongException e)
+                    {
+                        continue;
+                    }
                 }
 
                 // Push the subdirectories onto the stack for traversal.
